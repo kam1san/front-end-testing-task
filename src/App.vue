@@ -122,8 +122,9 @@ export default {
       })
       .catch(err => console.log(err.response))
       .finally(() => {
-        this.GetOrders()
-        console.log(this.orders);
+        this.GetOrders();
+        setTimeout(()=>{
+        window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight)}, 100)
         });
       }
     },

@@ -126,7 +126,6 @@ export default {
                     headers: {'Content-Type': 'application/json'}
                 })
                 .then(res => {
-                    console.log(res);
                     this.current_order = res.data;
                     this.current_product = this.GetProductsFromParent().find(e => e.id === this.current_order.productId)
                     this.current_status = this.GetStatusesFromParent().find(e => e.id === this.current_order.statusId)
@@ -141,20 +140,6 @@ export default {
                 .finally(this.$parent.GetOrders());
             }
         }
-    },
-    watch: { 
-        order: function(newVal, oldVal) {
-            console.log(oldVal);
-            this.current_order=newVal;
-        },
-        product: function(newVal, oldVal) {
-            console.log(oldVal);
-            this.current_product=newVal;
-        },
-        status: function(newVal, oldVal) {
-            console.log(oldVal);
-            this.current_status=newVal;
-        },
     },
     created(){
         this.current_order=this.order;
